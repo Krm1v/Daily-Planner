@@ -7,21 +7,31 @@
 
 import Foundation
 
-var ToDoItems: [[String: Any]] = [["Name": "Call mom", "isCompleted": false], ["Name": "Buy a bread", "isCompleted": false], ["Name": "Drink cola", "isCompleted": false]]
-
+var ToDoItems: [[String: Any]] {
+    set {
+        UserDefaults.standard.set(newValue, forKey: "ToDoDataKey")
+        UserDefaults.standard.synchronize()
+    }
+    get {
+        if let array = UserDefaults.standard.array(forKey: "ToDoDataKey") as? [[String: Any]] {
+            return array
+        } else {
+            return []
+}
+    }
+}
 func addItem(nameItem: String, isCompleted: Bool = false) -> Void {
     ToDoItems.append(["Name": nameItem, "isCompleted": false])
-    saveData()
 }
 
 func removeItem(at index: Int) -> Void {
     ToDoItems.remove(at: index)
-    saveData()
-}
-
-func saveData() -> Void {
-}
-
-func loadData() -> Void {
     
 }
+
+func changeState(at item: Int) -> Bool {
+    ToDoItems[item]["isCompleted"] = !(ToDoItems[item]["isCompleted"] as! Bool)
+    return ToDoItems[item]["isCompleted"] as! Bool
+    }
+
+
