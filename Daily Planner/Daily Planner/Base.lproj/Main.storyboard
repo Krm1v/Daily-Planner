@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="ZiI-z3-CKn" style="IBUITableViewCellStyleDefault" id="H6L-qW-mjW">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="ZiI-z3-CKn" imageView="uf6-Xu-veh" style="IBUITableViewCellStyleDefault" id="H6L-qW-mjW">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H6L-qW-mjW" id="vgK-TT-XeO">
@@ -24,12 +25,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZiI-z3-CKn">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="79" y="0.0" width="315" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="checkmarkColored" id="uf6-Xu-veh">
+                                            <rect key="frame" x="20" y="0.0" width="44" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -41,17 +46,28 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Things to do" id="6sP-4g-J52">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ELY-xk-ZbZ">
-                            <connections>
-                                <action selector="pushToAddAction:" destination="pQT-lc-d0T" id="diP-oD-SOO"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem id="ELY-xk-ZbZ">
+                                <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="large"/>
+                                <color key="tintColor" red="0.98823529409999999" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="pushToAddAction:" destination="pQT-lc-d0T" id="diP-oD-SOO"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Edit" id="ayv-SI-NWj">
+                                <imageReference key="image" image="pencil.circle.fill" catalog="system" symbolScale="large"/>
+                                <color key="tintColor" red="0.054901960780000002" green="0.015686274510000001" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="pushToEdit:" destination="pQT-lc-d0T" id="KaI-KW-rxe"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zsI-50-VqM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="724.63768115942037" y="6.6964285714285712"/>
+            <point key="canvasLocation" x="1086" y="-14"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PCK-xG-9Y7">
@@ -73,6 +89,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="checkmarkColored" width="512" height="512"/>
+        <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

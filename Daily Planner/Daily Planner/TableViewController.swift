@@ -9,12 +9,30 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
-    
-    @IBAction func pushToAddAction(_ sender: Any) {
-        addItem(nameItem: "New item")
-        tableView.reloadData()
+    @IBAction func pushToEdit(_ sender: Any) {
+        tableView.setEditing(!tableView.isEditing, animated: true)
     }
     
+    @IBAction func pushToAddAction(_ sender: Any) {
+        let alertController = UIAlertController(title: "Create new item", message: nil, preferredStyle: .alert)
+        alertController.addTextField { (textField) in
+            textField.placeholder = "New item's name"
+        }
+        
+        let alertAction1 = UIAlertAction(title: "Cancel", style: .default) { (alert) in
+    }
+        let alertAction2 = UIAlertAction(title: "Create", style: .cancel) { (alert) in
+        let newItem = alertController.textFields![0].text
+            addItem(nameItem: newItem!)
+            self.tableView.reloadData()
+    }
+        
+        alertController.addAction(alertAction1)
+        alertController.addAction(alertAction2)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,9 +63,10 @@ class TableViewController: UITableViewController {
         cell.textLabel?.text = currentItem["Name"] as? String
         
         if (currentItem["isCompleted"] as? Bool) == true {
-            cell.accessoryType = .checkmark
+            cell.imageView?.image = #imageLiteral(resourceName: "emptyPic")
         } else {
             cell.accessoryType = .none
+            tableView.cellForRow(at: indexPath)?.imageView?.image = #imageLiteral(resourceName: "checkmarkColored")
         }
 
         // Configure the cell...
@@ -62,7 +81,7 @@ class TableViewController: UITableViewController {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    
+
 
     
     // Override to support editing the table view.
@@ -80,19 +99,22 @@ class TableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if changeState(at: indexPath.row) {
-        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        tableView.cellForRow(at: indexPath)?.imageView?.image = #imageLiteral(resourceName: "emptyPic")
         } else {
             tableView.cellForRow(at: indexPath)?.accessoryType = .none
+            tableView.cellForRow(at: indexPath)?.imageView?.image = #imageLiteral(resourceName: "checkmarkColored")
         }
+    }
+
+
+    
+    // Override to support rearranging the table view.
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+        moveItem(fromIndex: fromIndexPath.row, toIndex: to.row)
+        tableView.reloadData()
     }
 }
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
 
     /*
     // Override to support conditional rearranging of the table view.
