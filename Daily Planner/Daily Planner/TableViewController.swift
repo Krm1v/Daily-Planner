@@ -14,9 +14,9 @@ class TableViewController: UITableViewController {
     }
     
     @IBAction func pushToAddAction(_ sender: Any) {
-        let alertController = UIAlertController(title: "Create new item", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Create new To-Do", message: nil, preferredStyle: .alert)
         alertController.addTextField { (textField) in
-            textField.placeholder = "New item's name"
+            textField.placeholder = "New To-Do name"
         }
         
         let alertAction1 = UIAlertAction(title: "Cancel", style: .default) { (alert) in
@@ -63,10 +63,9 @@ class TableViewController: UITableViewController {
         cell.textLabel?.text = currentItem["Name"] as? String
         
         if (currentItem["isCompleted"] as? Bool) == true {
-            cell.imageView?.image = #imageLiteral(resourceName: "emptyPic")
+            cell.imageView?.image = #imageLiteral(resourceName: "checkmarkColored")
         } else {
-            cell.accessoryType = .none
-            tableView.cellForRow(at: indexPath)?.imageView?.image = #imageLiteral(resourceName: "checkmarkColored")
+            tableView.cellForRow(at: indexPath)?.imageView?.image = #imageLiteral(resourceName: "empty")
         }
 
         // Configure the cell...
@@ -99,10 +98,9 @@ class TableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if changeState(at: indexPath.row) {
-        tableView.cellForRow(at: indexPath)?.imageView?.image = #imageLiteral(resourceName: "emptyPic")
-        } else {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
             tableView.cellForRow(at: indexPath)?.imageView?.image = #imageLiteral(resourceName: "checkmarkColored")
+        } else {
+            tableView.cellForRow(at: indexPath)?.imageView?.image = #imageLiteral(resourceName: "empty")
         }
     }
 
