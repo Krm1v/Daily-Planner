@@ -39,6 +39,7 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
+        
 //        tableView.backgroundColor = UIColor.systemGray6
 
         // Uncomment the following line to preserve selection between presentations
