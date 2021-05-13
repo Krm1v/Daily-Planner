@@ -36,6 +36,17 @@ class TableViewController: UITableViewController {
         present(alertController, animated: true, completion: nil)
     }
 
+    
+    @IBAction func settingsButton(_ sender: UIBarButtonItem) {
+        
+           
+    
+    }
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
@@ -73,6 +84,14 @@ class TableViewController: UITableViewController {
         } else {
             tableView.cellForRow(at: indexPath)?.imageView?.image = #imageLiteral(resourceName: "empty")
         }
+        
+        // MARK: making done todos attributed
+//        let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: cell.textLabel?.text)
+//            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
+//
+//        if (currentItem["isCompleted"] as? Bool) == true {
+//            cell.textLabel?.attributedText = attributeString
+//        }
 
         if tableView.isEditing {
             cell.textLabel?.alpha = 0.5
@@ -135,6 +154,8 @@ class TableViewController: UITableViewController {
         return false
     }
 }
+
+
     /*
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {

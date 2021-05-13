@@ -4,7 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -49,17 +49,23 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Things To-Do:" id="6sP-4g-J52">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="oTw-Ag-S4K">
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <action selector="settingsButton:" destination="pQT-lc-d0T" id="IDT-0R-y8h"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem id="ELY-xk-ZbZ">
-                                <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="large"/>
-                                <color key="tintColor" name="Color"/>
+                                <imageReference key="image" image="plus.diamond" catalog="system" symbolScale="large"/>
+                                <color key="tintColor" systemColor="labelColor"/>
                                 <connections>
                                     <action selector="pushToAddAction:" destination="pQT-lc-d0T" id="diP-oD-SOO"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Edit" id="ayv-SI-NWj">
-                                <imageReference key="image" image="pencil.circle.fill" catalog="system" symbolScale="large"/>
-                                <color key="tintColor" name="Color"/>
+                                <imageReference key="image" image="pencil.circle" catalog="system" symbolScale="large"/>
+                                <color key="tintColor" systemColor="labelColor"/>
                                 <connections>
                                     <action selector="pushToEdit:" destination="pQT-lc-d0T" id="KaI-KW-rxe"/>
                                 </connections>
@@ -67,10 +73,28 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="DNH-vM-UWb" kind="presentation" identifier="GoToSettings" id="0Dz-6P-vHB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zsI-50-VqM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1086" y="-14"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="Enq-LD-Zvb">
+            <objects>
+                <viewController id="DNH-vM-UWb" userLabel="Settings" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ndR-d8-sZ1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="viB-0z-cQc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kAe-qU-e6f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1909" y="-14"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PCK-xG-9Y7">
@@ -93,11 +117,11 @@
     </scenes>
     <resources>
         <image name="empty" width="27" height="27"/>
-        <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
-        <namedColor name="Color">
-            <color red="0.79215686269999996" green="0.43529411759999997" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="pencil.circle" catalog="system" width="128" height="121"/>
+        <image name="plus.diamond" catalog="system" width="128" height="122"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
