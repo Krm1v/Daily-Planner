@@ -19,9 +19,10 @@ var ToDoItems: [[String: Any]] {
             return array
         } else {
             return []
-}
+        }
     }
 }
+
 func addItem(nameItem: String, isCompleted: Bool = false) -> Void {
     ToDoItems.append(["Name": nameItem, "isCompleted": false])
     setBadge()
@@ -37,7 +38,7 @@ func changeState(at item: Int) -> Bool {
     setBadge()
     return ToDoItems[item]["isCompleted"] as! Bool
     
-    }
+}
 
 func moveItem(fromIndex: Int, toIndex: Int) {
 let from = ToDoItems[fromIndex]
@@ -52,7 +53,7 @@ func requestForNotifications() {
         } else {
             print("Denied")
         }
-}
+    }
 }
 
 func setBadge() {

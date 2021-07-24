@@ -1,41 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ihs-DP-7Tk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ihs-DP-7Tk">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Image references" minToolsVersion="12.0"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Things To-Do:-->
+        <!--My plans:-->
         <scene sceneID="9Vh-zS-1To">
             <objects>
                 <tableViewController id="pQT-lc-d0T" customClass="TableViewController" customModule="Daily_Planner" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cXP-y9-POW">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cXP-y9-POW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <color key="sectionIndexBackgroundColor" systemColor="systemGray5Color"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="ZiI-z3-CKn" imageView="uf6-Xu-veh" style="IBUITableViewCellStyleDefault" id="H6L-qW-mjW">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H6L-qW-mjW" id="vgK-TT-XeO">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZiI-z3-CKn">
-                                            <rect key="frame" x="62" y="0.0" width="332" height="44"/>
+                                            <rect key="frame" x="62" y="0.0" width="332" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="empty" id="uf6-Xu-veh">
-                                            <rect key="frame" x="20" y="8.5" width="27" height="27"/>
+                                            <rect key="frame" x="20" y="8" width="27" height="27"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
                                     </subviews>
@@ -48,18 +47,18 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Things To-Do:" id="6sP-4g-J52">
+                    <navigationItem key="navigationItem" title="My plans:" id="6sP-4g-J52">
                         <rightBarButtonItems>
                             <barButtonItem id="ELY-xk-ZbZ">
-                                <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="large"/>
-                                <color key="tintColor" name="Color"/>
+                                <imageReference key="image" image="plus.diamond" catalog="system" symbolScale="large"/>
+                                <color key="tintColor" systemColor="labelColor"/>
                                 <connections>
                                     <action selector="pushToAddAction:" destination="pQT-lc-d0T" id="diP-oD-SOO"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Edit" id="ayv-SI-NWj">
-                                <imageReference key="image" image="pencil.circle.fill" catalog="system" symbolScale="large"/>
-                                <color key="tintColor" name="Color"/>
+                                <imageReference key="image" image="pencil.circle" catalog="system" symbolScale="large"/>
+                                <color key="tintColor" systemColor="labelColor"/>
                                 <connections>
                                     <action selector="pushToEdit:" destination="pQT-lc-d0T" id="KaI-KW-rxe"/>
                                 </connections>
@@ -93,13 +92,10 @@
     </scenes>
     <resources>
         <image name="empty" width="27" height="27"/>
-        <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
-        <namedColor name="Color">
-            <color red="0.79215686269999996" green="0.43529411759999997" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <image name="pencil.circle" catalog="system" width="128" height="121"/>
+        <image name="plus.diamond" catalog="system" width="128" height="122"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
