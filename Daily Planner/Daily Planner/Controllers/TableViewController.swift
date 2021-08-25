@@ -16,6 +16,12 @@ class TableViewController: UITableViewController {
             self.tableView.reloadData()
     }
 }
+    
+    @IBAction func archivePushed(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "toArchive", sender: Any?.self)
+    }
+    
+    
     @IBAction func pushToAddAction(_ sender: Any) {
         let alertController = UIAlertController(title: "Create new To-Do", message: nil, preferredStyle: .alert)
         alertController.addTextField { (textField) in
@@ -41,7 +47,7 @@ class TableViewController: UITableViewController {
     //MARK: viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         tableView.tableFooterView = UIView()
         tableView.reloadData()
     }
@@ -138,5 +144,12 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return false
     }
-}
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "toArchive" {
+//            _ = segue.destination as? ArchiveVC
+//        }
+    }
+    
+
 
